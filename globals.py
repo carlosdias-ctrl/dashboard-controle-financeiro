@@ -17,14 +17,14 @@ else:
     df_despesas.to_csv("df_despesas.csv")
     df_receitas.to_csv("df_receitas.csv")
 
-if("df_receita.csv" in os.listdir()) and ("df_despesa.csv" in os.listdir()):
-    df_cat_receita = pd.read_csv("df_cat_receita", index_col=0)
-    df_cat_despesa = pd.read_csv("df_cat_despesa", index_col=0)
+if("df_cat_receita.csv" in os.listdir()) and ("df_cat_despesa.csv" in os.listdir()):
+    df_cat_receita = pd.read_csv("df_cat_receita.csv", index_col=0)
+    df_cat_despesa = pd.read_csv("df_cat_despesa.csv", index_col=0)
     cat_receita = df_cat_receita.values.tolist()
     cat_despesa = df_cat_despesa.values.tolist()
 
 else:
-    cat_receita = {'categoria': ["Salário", "Investimentos", "Comissão"]}
+    cat_receita = {'Categoria': ["Salário", "Investimentos", "Comissão"]}
     cat_despesa = {'Categoria': ["Alimentação", "Aluguel", "Gasolina", "Saúde", "Lazer"]}
 
     df_cat_receita = pd.DataFrame(cat_receita)
