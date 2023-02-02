@@ -281,21 +281,20 @@ def toggle_modal(n1, is_open):
     ]
 )
 def salve_form_receita(n, descricao, valor, date, switches, categoria, dict_receitas):
-  #import pdb
-  #pdb.set_trace()
+
   
   df_receitas = pd.DataFrame(dict_receitas)
 
   if n and not(valor == "" or valor == None):
-      valor = round(float(valor), 2)
-      date = pd.to_datetime(date).date()
-      categoria = categoria[0]
-      recebido = 1 if 1 in switches else 0
-      fixo = 1 if 2 in switches else 0
+    valor = round(float(valor), 2)
+    date = pd.to_datetime(date).date()
+    categoria = categoria[0]
+    recebido = 1 if 1 in switches else 0
+    fixo = 1 if 2 in switches else 0
 
-      df_receitas.loc[df_receitas.shape[0]] = [valor, recebido, fixo, date, categoria, descricao]
-      df_receitas.to_csv("df_receitas.csv")
+    df_receitas.loc[df_receitas.shape[0]] = [valor, recebido, fixo, date, categoria, descricao]
+    df_receitas.to_csv("df_receitas.csv")
 
-      data_return = df_receitas.to_dict()
-      return data_return
+    data_return = df_receitas.to_dict()
+    return data_return
   
